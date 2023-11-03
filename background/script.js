@@ -16,6 +16,7 @@ function handleColor(json) {
         case "one":
             let background_color = json.background_color_1
 
+            div.style.background = null;
             div.style.backgroundColor = background_color
             div.style.height = "100vh"
             div.style.width = "100vw"
