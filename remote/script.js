@@ -18,8 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const modeSwitch = document.getElementById('modeSwitch');
 
     // Initialisez Socket.io et connectez-vous au serveur
-    const socket = io.connect('http://localhost:3000'); // Remplacez par l'URL de votre serveur Socket.io
-
+    var socket = io('http://localhost:3000');
+    socket.on('connect_error', function(err) {
+        alert("Connection was interrupted. Please check your network.");
+    });
+    
     // Écoutez les changements de couleur dans le colorPicker1
     colorPicker1.addEventListener('change', function() {
         const color1 = colorPicker1.value;
