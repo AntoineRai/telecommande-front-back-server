@@ -1,3 +1,11 @@
+//TODO : Déployer le HTML sur un serveur Express
+
+const socket = io('http://localhost:3000');
+
+socket.on('message', (message) => {
+    handleColor(message);
+});
+
 //Handling the JSON file and changing the background color
 function handleColor(json) {
 
@@ -29,19 +37,3 @@ function handleColor(json) {
             break;
     }
 }
-
-//Fetching the JSON file
-fetch('./OneColor.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erreur de réseau');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
-        handleColor(data)
-    })
-    .catch(error => {
-        console.error('Erreur : ' + error);
-    });

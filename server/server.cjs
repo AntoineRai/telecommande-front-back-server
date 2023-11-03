@@ -17,9 +17,4 @@ io.on('connection', (socket) => {
         // Envoyer le message à tous les utilisateurs connectés
         io.emit('message', message);
     });
-
-    // Gérer la déconnexion de l'utilisateur
-    socket.on('disconnect', () => {
-        console.log('Un utilisateur s\'est déconnecté');
-    });
 });
