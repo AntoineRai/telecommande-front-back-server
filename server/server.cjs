@@ -12,9 +12,17 @@ io.on('connection', (socket) => {
 
     // Écouter les messages envoyés par l'utilisateur
     socket.on('message', (message) => {
-        console.log(`Message reçu : ${message}`);
+        console.log("Message reçu :",message);
 
         // Envoyer le message à tous les utilisateurs connectés
         io.emit('message', message);
+    });
+
+    // Écouter les zone envoyés par l'utilisateur
+    socket.on('zone', (zone) => {
+        console.log("log zone :",zone);
+
+        // Envoyer les zone à tous les utilisateurs connectés
+        io.emit('zone', zone);
     });
 });
