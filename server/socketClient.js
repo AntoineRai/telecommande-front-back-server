@@ -5,7 +5,7 @@ const socket = io('http://localhost:3000');
 const json = {
     background_type: "gradient",
     background_color_1: "#32a852",
-    background_color_2: "#DADADA"
+    background_color_2: "#32a852"
 }
 
 socket.emit('message', json);
