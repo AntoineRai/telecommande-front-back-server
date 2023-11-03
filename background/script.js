@@ -38,3 +38,19 @@ function handleColor(json) {
             break;
     }
 }
+
+let compteurDiv = 1;
+
+document.getElementById('plus').addEventListener('click', () => {
+    compteurDiv++; // Incrémente le compteur de divs
+    const mainContainer = document.getElementById("main-container");
+    const newDiv = document.createElement("div");
+
+    // Définit l'ID de la nouvelle div comme le nombre actuel du compteur
+    newDiv.id = compteurDiv;
+
+    newDiv.textContent = compteurDiv; // Affiche un numéro dans la nouvelle div
+    mainContainer.appendChild(newDiv); // Ajoute la nouvelle div au conteneur principal
+
+    socket.emit('plus');
+});
