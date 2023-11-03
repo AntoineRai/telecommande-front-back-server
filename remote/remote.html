@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Color Picker avec Switch</title>
+  <link rel="stylesheet" type="text/css" href="remote.css">
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+<h1>Color picker remote</h1>
+
+<div class="colorPickers">
+  <input type="color" id="colorPicker1" value="#00f000">
+  <input type="color" id="colorPicker2" class="hidden" value="#00ff00">
+</div>
+
+<div class="switch-container">
+  <label class="toggle" for="modeSwitch"><span id="switchText">Couleur Simple</span> :
+    <input class="toggle-checkbox" type="checkbox" id="modeSwitch">
+    <div class="toggle-switch"></div>
+  </label>
+
+</div>
+
+<script src="socket.io.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
