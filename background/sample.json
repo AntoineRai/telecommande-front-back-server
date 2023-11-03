@@ -1,0 +1,13 @@
+{
+  "background_type": "backgroundType",
+  "background_color_1": "color1",
+  "background_color_2": "color2",
+  "buttons": [
+    {
+      "zone": 1
+    },
+    {
+      "zone": 2
+    }
+  ]
+}
