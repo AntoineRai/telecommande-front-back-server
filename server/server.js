@@ -1,12 +1,14 @@
 // Importer la bibliothèque Socket.IO
-const io = require('socket.io')(3000);
+const io = require('socket.io')(3000, {
+    cors : {
+        origin: '*',
+        methods: ['GET', 'POST'],
+    }
+});
 
 // Écouter les connexions entrantes
 io.on('connection', (socket) => {
     console.log('Un utilisateur s\'est connecté');
-
-    // Envoyer un message à l'utilisateur connecté
-    socket.emit('message', 'Bienvenue sur le serveur WebSocket !');
 
     // Écouter les messages envoyés par l'utilisateur
     socket.on('message', (message) => {
