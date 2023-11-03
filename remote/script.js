@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Émettez les données au format JSON via Socket.io
-        socket.emit('colorChange', JSON.stringify(data));
+        socket.emit('message', data);
     });
 
     // Écoutez les changements de couleur dans le colorPicker2
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Émettez les données au format JSON via Socket.io
-        socket.emit('colorChange', JSON.stringify(data));
+        socket.emit('message', data);
     });
 
     // Écoutez les changements d'état de la checkbox
@@ -65,6 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Émettez les données au format JSON via Socket.io
-        socket.emit('colorChange', JSON.stringify(data));
+        socket.emit('message', data);
     });
 });
