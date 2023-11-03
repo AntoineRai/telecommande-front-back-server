@@ -52,5 +52,5 @@ document.getElementById('plus').addEventListener('click', () => {
     newDiv.textContent = compteurDiv; // Affiche un numéro dans la nouvelle div
     mainContainer.appendChild(newDiv); // Ajoute la nouvelle div au conteneur principal
 
-    socket.emit('plus');
+    socket.emit('zone', {"button" : compteurDiv});
 });
