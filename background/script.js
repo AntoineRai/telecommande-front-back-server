@@ -3,14 +3,21 @@
 const socket = io('http://localhost:3000');
 
 socket.on('message', (message) => {
-    handleColor(message);
+    handleChange(message);
 });
 
+function handleChange(json){
+    let length = json.buttons.length;
+    for (let i = 0; i < length; i++) {
+        handleColor(json,i)
+    }
+}
+
 //Handling the JSON file and changing the background color
-function handleColor(json) {
+function handleColor(json,i) {
 
     let background_type = json.background_type
-    let div = document.getElementById('main-container')
+    let div = document.getElementById(json.buttons[i].zone)
 
     switch (background_type) {
         case "one":
@@ -18,8 +25,6 @@ function handleColor(json) {
 
             div.style.background = null;
             div.style.backgroundColor = background_color
-            div.style.height = "100vh"
-            div.style.width = "100vw"
 
             break;
         case "gradient":
@@ -28,8 +33,6 @@ function handleColor(json) {
             let gradient = `linear-gradient(to right, ${background_color_1}, ${background_color_2})`
 
             div.style.background = gradient;
-            div.style.height = "100vh"
-            div.style.width = "100vw"
 
             break;
         default:

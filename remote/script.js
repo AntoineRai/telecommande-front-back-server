@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const modeSwitch = document.getElementById('modeSwitch');
 
     // Initialisez Socket.io et connectez-vous au serveur
-    var socket = io('http://localhost:3000');
+    const socket = io('http://localhost:3000');
     socket.on('connect_error', function(err) {
         alert("Connection was interrupted. Please check your network.");
     });
@@ -69,5 +69,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Émettez les données au format JSON via Socket.io
         socket.emit('message', data);
+    });
+
+    // Écoutez l'événement de création de boutons
+    socket.on('zone', (element) => {
+        console.log(element)
+        const buttonContainer = document.getElementById('buttonContainer'); // Remplacez par l'ID de votre conteneur de boutons
+
+        for (let i = 2; i <= element.button+1; i++) {
+            const button = document.createElement('button');
+            button.textContent = `Zone ${i}`;
+            buttonContainer.appendChild(button);
+        }
     });
 });
